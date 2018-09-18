@@ -23,4 +23,7 @@ public class BasicInfo {
     
     @Column(name = "user_id",length = 20)
     private String userId;
+    
+    //头像地址
+    private String profileUrl;
 }

@@ -16,7 +16,7 @@ import java.util.Set;
 @Table(name = "sys_user")
 @Data
 @Builder
-public class User {
+public class MyUser {
     
     @Id
     @Column(name = "user_id", length = 20)
@@ -27,7 +27,7 @@ public class User {
     private String username;
     
     @NotNull
-    @Column(unique = true)
+    @Column()
     private String password;
     
     @Column(name = "nick_name")
@@ -40,4 +40,5 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "read_user_id")
     private Set<Message> messages;
+    
 }

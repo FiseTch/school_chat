@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆页面</title>
+</head>
+<body>
+{$u}
+<form name="uploadForm" id="uploadForm" method="post" enctype="multipart/form-data"
+      th:action="@{/upload}" target="uploadFrame">
+    <p style="margin:10px 0;">上传图片: &nbsp;&nbsp;
+        <input type="file" name="imageFile" ID="fupPhoto"/>
+        <input type="submit" id="fileSubmit" name="Submit" value="上传"/>
+    </p>
+</form>
+</body>
+</html>

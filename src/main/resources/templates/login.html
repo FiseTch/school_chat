@@ -10,6 +10,49 @@
 </head>
 <script type = "text/javascript" th:src="@{js/jquery-3.3.1.min.js}"></script>
 <script type = "text/javascript" th:src="@{js/test.js}"></script>
+<script type = "text/javascript" th:src="@{js/qq.js}" charset="UTF-8"></script>
+<!--引用JS SDK的JavaScript文件-->
+<script type="text/javascript"  charset="utf-8" th:src="@{js/qq.js}"
+        data-appid="get_user_info"  data-redirecturi="login.html">
+</script>
+<!-- 发起登录请求-->
+<script type="text/javascript">
+    //调用QC.Login方法，指定btnId参数将按钮绑定在容器节点中
+    QC.Login({
+            //btnId：插入按钮的节点id，必选
+            btnId:"qq_login",
+            //用户需要确认的scope授权项，可选，默认all
+            scope:"all",
+            //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
+            size: "A_XL"
+        }, function(reqData, opts){//登录成功
+            //根据返回数据，更换按钮显示状态方法
+            var dom = document.getElementById(opts['btnId']),
+                _logoutTemplate=[
+                    //头像
+                    '<span><img src="{figureurl}" class="{size_key}"/></span>',
+                    //昵称
+                    '<span>{nickname}</span>',
+                    //退出
+                    '<span><a href="javascript:QC.Login.signOut();">退出</a></span>'
+                ].join("");
+            dom && (dom.innerHTML = QC.String.format(_logoutTemplate, {
+                nickname : QC.String.escHTML(reqData.nickname), //做xss过滤
+                figureurl : reqData.figureurl
+            }));
+        }, function(opts){//注销成功
+            alert('QQ登录 注销成功');
+        }
+    );
+</script>
+<!-- 回调页面-->
+<script type="text/javascript" charset="utf-8" data-callback="true"></script>
+
+<!--get_user_info
+QC.api(api, paras, fmt, method)
+access_token=*************&
+oauth_consumer_key=12345&
+openid=****************-->
 <body>
 <div id="wrapper">
 	<div class="aw-login-box">
@@ -42,7 +85,7 @@
 			<div class="side-bar pull-left">
 				<h3>第三方账号登录</h3>
 				<a href="javascript:;" class="btn btn-block btn-weibo"><i class="icon icon-sinaweibo"></i> 新浪微博登录</a>
-				<a href="javascript:;" class="btn btn-block btn-qq"> <i class="icon icon-icon_QQ"></i> QQ登录</a>
+				<button id="qq_login" class="btn btn-block btn-qq"> <i class="icon icon-icon_QQ"></i> QQ登录</button>
 			</div>
 		</div>
 		<div class="mod-footer">

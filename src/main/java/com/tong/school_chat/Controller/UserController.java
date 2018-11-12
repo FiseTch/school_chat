@@ -1,5 +1,6 @@
 package com.tong.school_chat.Controller;
 
+import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @time 2018/9/18 16:43
  */
 
+@Log4j
 @RequestMapping
 @Controller
 public class UserController {
@@ -27,6 +29,7 @@ public class UserController {
     
     @RequestMapping("/login")
     public String login(){
+        log.info("进入到login");
         return "login";
     }
 }

@@ -1,4 +1,4 @@
-package com.tong.school_chat.damain;
+package com.tong.school_chat.domain;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.tong.school_chat.Service;
 
-import com.tong.school_chat.damain.MyUser;
+import com.tong.school_chat.domain.MyUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

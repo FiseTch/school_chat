@@ -2,10 +2,9 @@ package com.tong.school_chat.Controller;
 
 import com.tong.school_chat.Service.UserRepository;
 import com.tong.school_chat.SpringContextHolder;
-import com.tong.school_chat.damain.MyUser;
+import com.tong.school_chat.domain.MyUser;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;

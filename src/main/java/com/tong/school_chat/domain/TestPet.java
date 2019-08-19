@@ -1,6 +1,7 @@
 package com.tong.school_chat.domain;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,10 +15,10 @@ import javax.annotation.Resource;
  * @classname TestPet
  * @date 2019/08/19 20:54
  * @description autowired 和resource 的区别
- *  一个根据类型来注入，一个根据属性名来注入。当注入的接口有多个实现时
- *  如果使用autowired 则可以通过qualifier注解来表明多个实现类的区别
- *  也可以通过@Priamry注解来标明接口的主要实现类 -- 默认只能使用一个接口的实现 -不推荐
- *  如果使用Resource注解，则可以通过在后面添加name属性来区分
+ * 一个根据类型来注入，一个根据属性名来注入。当注入的接口有多个实现时
+ * 如果使用autowired 则可以通过qualifier注解来表明多个实现类的区别
+ * 也可以通过@Priamry注解来标明接口的主要实现类 -- 默认只能使用一个接口的实现 -不推荐
+ * 如果使用Resource注解，则可以通过在后面添加name属性来区分
  **/
 @Data
 @Component
@@ -29,13 +30,14 @@ public class TestPet {
     private String name;
     
     
-//    @Autowired
+    //    @Autowired
 //    @Qualifier("dog")
     @Resource(name = "bird")
     private Pet pet;
     
-    public void move(){
+    public String move() {
         pet.move();
+        return "Test Pet";
     }
     
     

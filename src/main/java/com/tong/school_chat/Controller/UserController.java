@@ -1,6 +1,7 @@
 package com.tong.school_chat.Controller;
 
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @time 2018/9/18 16:43
  */
 
-@Log4j
+@Slf4j
 @RequestMapping
 @Controller
 public class UserController {

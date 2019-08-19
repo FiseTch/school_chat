@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
     
-    @RequestMapping("user_login")
+   /* @RequestMapping("user_login")
     public ModelAndView userLogin(@RequestParam("user_name")String username, @RequestParam("password")String pwd){
         ModelAndView mv = new ModelAndView();
         MyUser u = MyUser.builder().build();
@@ -34,4 +34,4 @@ public class LoginController {
         return null;
     
     }
-}
+*/}

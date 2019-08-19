@@ -1,16 +1,22 @@
 package com.tong.school_chat;
 
+import com.tong.school_chat.domain.Dog;
+import com.tong.school_chat.domain.Pet;
+import com.tong.school_chat.domain.TestPet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.stereotype.Component;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class SchoolChatApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SchoolChatApplication.class, args);
-    }
     
+        ApplicationContext ctx = SpringApplication.run(SchoolChatApplication.class, args);
+        TestPet testPet = ctx.getBean(TestPet.class);
+        System.out.println(testPet.toString());
+        testPet.move();
+    }
+
 }
